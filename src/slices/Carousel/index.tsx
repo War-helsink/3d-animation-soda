@@ -2,21 +2,23 @@
 
 import { Center, Environment, View } from "@react-three/drei";
 import { useRef, useState } from "react";
-import clsx from "clsx";
+
 import type { Group } from "three";
 import gsap from "gsap";
 
 import { FloatingCan } from "@/components/floating-can";
 import type { SodaCanProps } from "@/components/soda-can";
-import { ArrowIcon } from "./arrow-icon";
 import { WavyCircles } from "./wavy-circles";
+import { ArrowButton } from "./arrow-button";
 
-const SPINS_ON_CHANGE = 8;
-const FLAVORS: {
+export interface Flavor {
 	flavor: SodaCanProps["flavor"];
 	color: string;
 	name: string;
-}[] = [
+}
+
+const SPINS_ON_CHANGE = 8;
+const FLAVORS: Flavor[] = [
 	{ flavor: "blackCherry", color: "#710523", name: "Black Cherry" },
 	{ flavor: "grape", color: "#572981", name: "Grape Goodness" },
 	{ flavor: "lemonLime", color: "#164405", name: "Lemon Lime" },
@@ -67,9 +69,7 @@ export const Carousel: React.FC = () => {
 	}
 
 	return (
-		<section
-			className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white"
-		>
+		<section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
 			<div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
 
 			<WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />
@@ -120,28 +120,5 @@ export const Carousel: React.FC = () => {
 				</div>
 			</div>
 		</section>
-	);
-};
-
-export interface ArrowButtonProps {
-	direction?: "right" | "left";
-	label: string;
-	onClick: () => void;
-}
-
-const ArrowButton: React.FC<ArrowButtonProps> = ({
-	label,
-	onClick,
-	direction = "right",
-}) => {
-	return (
-		<button
-			type="button"
-			onClick={onClick}
-			className="size-12 rounded-full border-2 border-white bg-white/10 p-3 opacity-85 ring-white focus:outline-none focus-visible:opacity-100 focus-visible:ring-4 md:size-16 lg:size-20"
-		>
-			<ArrowIcon className={clsx(direction === "right" && "-scale-x-100")} />
-			<span className="sr-only">{label}</span>
-		</button>
 	);
 };
