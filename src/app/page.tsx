@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Main } from "@/slices";
+import { Slices } from "@/slices";
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -16,5 +16,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Index() {
-	return <Main />;
+	return <Slices />;
 }
