@@ -7,7 +7,7 @@ export const GithubLink: React.FC<GithubLinkProps> = ({ className }) => {
 		<a
 			target="_blank"
 			rel="noreferrer"
-			href="https://github.com/War-helsink/animated-sidebar"
+			href="https://github.com/War-helsink/3d-animation-soda"
 			className={className}
 		>
 			<button
