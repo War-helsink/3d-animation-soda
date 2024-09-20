@@ -6,7 +6,7 @@ import { ViewCanvas } from "@/components/view-canvas";
 import { Footer } from "@/components/footer";
 
 const alpino = localFont({
-	src: "./fonts/Alpino-Variable.woff2",
+	src: "../../public/fonts/Alpino-Variable.woff2",
 	display: "swap",
 	weight: "100 900",
 	variable: "--font-alpino",

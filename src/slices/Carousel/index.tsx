@@ -69,7 +69,7 @@ export const Carousel: React.FC = () => {
 	}
 
 	return (
-		<section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
+		<section className="carousel relative grid h-dvh grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
 			<div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
 
 			<WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />

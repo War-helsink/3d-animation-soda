@@ -25,14 +25,14 @@ export const AlternatingText: React.FC = () => {
 		<Bounded className="alternating-text-container relative bg-yellow-300 text-sky-950">
 			<div>
 				<div className="relative z-[100] grid">
-					<View className="alternating-text-view absolute left-0 top-0 h-screen w-full">
+					<View className="alternating-text-view absolute left-0 top-0 h-dvh w-full">
 						<Scene />
 					</View>
 
 					{TEXT_GROUP.map((item, index) => (
 						<div
 							key={item.heading}
-							className="alternating-section grid h-screen place-items-center gap-x-12 md:grid-cols-2"
+							className="alternating-section grid h-dvh place-items-center gap-x-12 md:grid-cols-2"
 						>
 							<div
 								className={clsx(

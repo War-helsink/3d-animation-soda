@@ -93,14 +93,14 @@ export const Hero: React.FC = () => {
 	return (
 		<Bounded className="hero opacity-0">
 			{isDesktop && (
-				<View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
+				<View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-dvh w-screen md:block">
 					<Scene />
 					<Bubbles count={300} speed={2} repeat={true} />
 				</View>
 			)}
 
 			<div className="grid">
-				<div className="grid h-screen place-items-center">
+				<div className="grid h-dvh place-items-center">
 					<div className="grid auto-rows-min place-items-center text-center">
 						<h1 className="hero-header text-7xl font-black uppercase leading-[.8] text-orange-500 md:text-[9rem] lg:text-[13rem]">
 							<TextSplitter
@@ -119,7 +119,7 @@ export const Hero: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
+				<div className="text-side relative z-[80] grid h-dvh items-center gap-4 md:grid-cols-2">
 					<img
 						className="w-full md:hidden"
 						alt="All Fizzi can flavors"
