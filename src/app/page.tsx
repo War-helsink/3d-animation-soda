@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { Main } from "@/slices";
+
 export async function generateMetadata(): Promise<Metadata> {
 	return {
 		title: "Fizzi - Soda for Gutsy People",
@@ -14,5 +16,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Index() {
-	return <div> Page </div>;
+	return <Main />;
 }
