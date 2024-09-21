@@ -1,6 +1,7 @@
 "use client";
 
-import * as THREE from "three";
+import { Object3D, SphereGeometry, MeshStandardMaterial, Color } from "three";
+import type { InstancedMesh, Material } from "three";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
@@ -14,7 +15,7 @@ export interface BubblesProps {
 }
 
 // Using Object3D as a container to efficiently set and update positions for each bubble instance
-const o = new THREE.Object3D();
+const o = new Object3D();
 
 // Customizations in case you want to use this in other scenes.
 export const Bubbles: React.FC<BubblesProps> = ({
@@ -24,7 +25,7 @@ export const Bubbles: React.FC<BubblesProps> = ({
 	opacity = 0.5,
 	repeat = true,
 }) => {
-	const meshRef = useRef<THREE.InstancedMesh>(null);
+	const meshRef = useRef<InstancedMesh>(null);
 
 	// An array that holds all of our bubbles' speeds
 	const bubbleSpeed = useRef(new Float32Array(count));
@@ -32,9 +33,9 @@ export const Bubbles: React.FC<BubblesProps> = ({
 	const maxSpeed = speed * 0.005;
 
 	// Create geometry and material for our mesh
-	const geometry = new THREE.SphereGeometry(bubbleSize, 16, 16);
+	const geometry = new SphereGeometry(bubbleSize, 16, 16);
 
-	const material = new THREE.MeshStandardMaterial({
+	const material = new MeshStandardMaterial({
 		transparent: true,
 		opacity,
 	});
@@ -67,7 +68,7 @@ export const Bubbles: React.FC<BubblesProps> = ({
 		mesh.instanceMatrix.needsUpdate = true;
 		return () => {
 			mesh.geometry.dispose();
-			(mesh.material as THREE.Material).dispose();
+			(mesh.material as Material).dispose();
 		};
 	}, [count, minSpeed, maxSpeed]);
 
@@ -78,7 +79,7 @@ export const Bubbles: React.FC<BubblesProps> = ({
 		}
 
 		// Assign current body color to bubble so it looks natural
-		material.color = new THREE.Color(document.body.style.backgroundColor);
+		material.color = new Color(document.body.style.backgroundColor);
 
 		for (let i = 0; i < count; i++) {
 			meshRef.current.getMatrixAt(i, o.matrix);

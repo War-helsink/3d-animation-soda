@@ -2,7 +2,7 @@
 
 import { Cloud, Clouds, Environment } from "@react-three/drei";
 import { useRef } from "react";
-import type * as THREE from "three";
+import type { Group } from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,12 +19,12 @@ export interface SkyDiveProps {
 }
 
 export const Scene: React.FC<SkyDiveProps> = ({ sentence, flavor }) => {
-	const groupRef = useRef<THREE.Group>(null);
-	const canRef = useRef<THREE.Group>(null);
-	const cloud1Ref = useRef<THREE.Group>(null);
-	const cloud2Ref = useRef<THREE.Group>(null);
-	const cloudsRef = useRef<THREE.Group>(null);
-	const wordsRef = useRef<THREE.Group>(null);
+	const groupRef = useRef<Group>(null);
+	const canRef = useRef<Group>(null);
+	const cloud1Ref = useRef<Group>(null);
+	const cloud2Ref = useRef<Group>(null);
+	const cloudsRef = useRef<Group>(null);
+	const wordsRef = useRef<Group>(null);
 
 	const ANGLE = 75 * (Math.PI / 180);
 
