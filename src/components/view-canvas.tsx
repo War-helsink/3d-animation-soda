@@ -17,8 +17,7 @@ export const ViewCanvas:React.FC = () => {
         style={{
           position: "fixed",
           top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
+          left: 0,
           overflow: "hidden",
           pointerEvents: "none",
           zIndex: 30,
